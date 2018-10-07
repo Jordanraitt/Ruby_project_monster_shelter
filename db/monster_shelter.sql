@@ -1,5 +1,5 @@
-DROP TABLE trainers;
 DROP TABLE monsters;
+DROP TABLE trainers;
 
 CREATE TABLE trainers(
   id SERIAL4 PRIMARY KEY,
