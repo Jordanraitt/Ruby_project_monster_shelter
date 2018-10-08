@@ -9,31 +9,24 @@ attr_reader :id, :name
     @name = options['name']
   end
 
-def save()
-  sql = "INSERT INTO trainers
-  (
-    name
-  )
-  VALUES
-  (
-    $1
-  )
-  RETURNING *"
-  values = [@name]
-  result = SqlRunner.run(sql, values)
-  @id = result.first()['id'].to_i
-end
-
-def update()
-    sql = "UPDATE trainers
-    SET
+  def save()
+    sql = "INSERT INTO trainers
     (
       name
-
-    ) =
+    )
+    VALUES
     (
       $1
     )
+    RETURNING *"
+    values = [@name]
+    result = SqlRunner.run(sql, values)
+    @id = result.first()['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE trainers
+    SET name = ($1)
     WHERE id = $2"
     values = [@name, @id]
     SqlRunner.run( sql, values )
@@ -64,6 +57,15 @@ def update()
     trainer = SqlRunner.run( sql, values )
     result = Trainer.new( trainer.first )
     return result
+  end
+
+  def monsters()
+    sql = "SELECT * FROM trainers INNER JOIN monsters
+    ON trainers.id = monsters.trainer_id
+    WHERE trainer_id = $1 "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map { |monster| Monster.new(monster) }
   end
 
 end

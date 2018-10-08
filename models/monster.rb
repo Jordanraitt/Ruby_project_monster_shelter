@@ -2,8 +2,8 @@ require_relative('../db/sql_runner')
 
 class Monster
 
-attr_reader :id, :name
-attr_accessor :trainer_id
+attr_reader :id, :name, :trainer_id
+
 
   def initialize(options)
     @id = options['id'].to_i
@@ -62,8 +62,8 @@ attr_accessor :trainer_id
 
   def self.all_available()
     sql = "SELECT * FROM monsters
-    WHERE trainer_id = NULL"
-    values = [@trainer_id].to_i
+    WHERE trainer_id is NULL"
+    values = [@trainer_id]
     monster = SqlRunner.run( sql )
     result = monster.map { |monster| Monster.new( monster ) }
     return result

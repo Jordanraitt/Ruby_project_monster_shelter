@@ -1,0 +1,12 @@
+<h1>Trainer Details</h1>
+
+<p>Name: <%= @trainers.name %></p>
+<% for monster in @trainers.monsters %>
+<p>Monster/s: <%= monster.name() %></p>
+<% end %>
+
+<p> <a href="/trainers/<%= @trainers.id %>/edit">Edit Trainer</a> </p>
+
+<form action="/trainers/<%= @trainers.id %>/delete" method="post">
+<input type="submit" value="Delete Trainer">
+</form>
