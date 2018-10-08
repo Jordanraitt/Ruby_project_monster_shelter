@@ -1,0 +1,22 @@
+<form action="/monsters/index" method="post">
+
+    <label>
+    Select a Monster:
+      <select name="monster_id">
+        <% for monster in @monsters %>
+        <option value="<%= monster.id %>"><%= monster.name %></option>
+        <% end %>
+      </select>
+    </label>
+
+    <label>
+      Select a Trainer:
+      <select name="trainer_id">
+        <% for trainer in @trainers %>
+        <option value="<%= trainer.id %>"><%= trainer.name %></option>
+        <% end %>
+      </select>
+    </label>
+
+    <input  type='submit' value="Assign Trainer">
+  </form>
