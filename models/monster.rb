@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Monster
 
-attr_reader :id, :name, :trainer_id
+attr_reader :id, :name
+attr_accessor :trainer_id
 
 
   def initialize(options)
