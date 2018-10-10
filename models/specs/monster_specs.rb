@@ -9,7 +9,7 @@ class TestMonster< MiniTest::Test
     @monster1 = Monster.new(options)
   end
 
-  def test_trainer_name
+  def test_monster_name
     result = @monster1.name
     assert_equal("Slime", result)
   end

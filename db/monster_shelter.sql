@@ -1,13 +1,20 @@
 DROP TABLE monsters;
 DROP TABLE trainers;
+DROP TABLE familys;
 
 CREATE TABLE trainers(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE familys(
+  name VARCHAR(255) NOT NULL,
+  id SERIAL4 PRIMARY KEY
+);
+
 CREATE TABLE monsters(
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
+  family_id INT4 REFERENCES familys(id) ON DELETE CASCADE,
   trainer_id INT4 REFERENCES trainers(id) ON DELETE CASCADE
 );

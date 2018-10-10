@@ -3,6 +3,7 @@ require( 'sinatra/contrib/all' )
 require('pry')
 require_relative('../models/trainer.rb')
 require_relative('../models/monster.rb')
+require_relative('../models/family.rb')
 also_reload( '../models/*' )
 
 # all monsters
@@ -19,8 +20,10 @@ end
 
 # new
 get '/monsters/new' do
+  @familys = Family.all
   erb( :"monsters/new" )
 end
+
 
 # create
 post'/monsters' do
@@ -41,4 +44,12 @@ post '/monsters/index' do
   monster.trainer_id = params["trainer_id"]
   monster.update
   erb( :"monsters/update")
+end
+
+# show
+get '/monsters/:id' do
+  id = params[:id].to_i()
+  @monsters = Monster.find(id)
+  @monsters.family
+  erb( :"monsters/show" )
 end

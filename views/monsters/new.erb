@@ -1,13 +1,20 @@
 <form action="/monsters" method="post">
 
-  <label for="New-monster-name-field">House</label>
- <select name="name" id=New-monster-name-field>
-   <option value="" diabled selected>Choose</option>
-   <option value="Slime">Slime</option>
-   <option value="Wing slime">Wing slime</option>
-   <option value="Drak Slime">Drak Slime</option>
-   <option value="Box Slime">Box Slime</option>
- </select>
+  <label for="family_select">Select Family:</label>
+    <select name="family_id" id="family_select">
+      <% @familys.each do |family| %>
+        <option value=<%= family.id %>><%= family.name.capitalize %></option>
+      <% end %>
+    </select>
 
- <input type="submit" value="Create New Monster">
+  <label for="New-monster-name-field">Select Monster Name</label>
+    <select name="name" id=New-monster-name-field>
+      <option value="" diabled selected>Choose</option>
+      <option value="Slime">Slime</option>
+      <option value="Wing slime">Wing slime</option>
+      <option value="Drak Slime">Drak Slime</option>
+      <option value="Box Slime">Box Slime</option>
+    </select>
+
+  <input type="submit" value="Create New Monster">
 </form>

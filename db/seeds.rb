@@ -1,8 +1,10 @@
 require_relative('../models/trainer.rb')
+require_relative('../models/family.rb')
 require_relative('../models/monster.rb')
 require("pry-byebug")
 
 Monster.delete_all()
+Family.delete_all()
 Trainer.delete_all()
 
 trainer1 = Trainer.new({
@@ -11,17 +13,31 @@ trainer1 = Trainer.new({
 
 trainer1.save
 
+family1 = Family.new({
+  "name" => "Slime"
+  })
+
+  family2 = Family.new({
+    "name" => "Dragon"
+    })
+
+family1.save
+family2.save
+
 monster1 = Monster.new({
-  "name" => "slime",
+  "name" => "Slime",
+  "family_id" => family1.id,
   "trainer_id" => trainer1.id
 })
 
 monster2 = Monster.new({
-  "name" => "Wing slime"
+  "name" => "Wing slime",
+  "family_id" => family1.id
 })
 
 monster3 = Monster.new({
-  "name" => "Drak slime"
+  "name" => "Drak slime",
+  "family_id" => family1.id
 })
 
 monster1.save
@@ -29,6 +45,7 @@ monster2.save
 monster3.save
 
 trainer1.monsters
+monster1.family
 Monster.all_available
 
 binding.pry

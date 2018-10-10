@@ -2,27 +2,28 @@ require_relative('../db/sql_runner')
 
 class Monster
 
-attr_reader :id, :name
+attr_reader :id, :name, :family_id
 attr_accessor :trainer_id
 
 
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
+    @family_id = options['family_id'].to_i
     @trainer_id = options['trainer_id'].to_i if options['trainer_id']
   end
 
   def save()
     sql = "INSERT INTO monsters
     (
-      name, trainer_id
+      name, family_id, trainer_id
     )
     VALUES
     (
-      $1, $2
+      $1, $2, $3
     )
     RETURNING *"
-    values = [@name, @trainer_id]
+    values = [@name, @family_id, @trainer_id]
     result = SqlRunner.run(sql, values)
     @id = result.first()['id'].to_i
   end
@@ -31,14 +32,14 @@ attr_accessor :trainer_id
       sql = "UPDATE monsters
       SET
       (
-        name, trainer_id
+        name, family_id, trainer_id
 
       ) =
       (
-        $1, $2
+        $1, $2, $3
       )
-      WHERE id = $3"
-      values = [@name, @trainer_id, @id]
+      WHERE id = $4"
+      values = [@name, @family_id, @trainer_id, @id]
       SqlRunner.run( sql, values )
     end
 
@@ -77,5 +78,13 @@ attr_accessor :trainer_id
     result = Monster.new( monster.first )
     return result
   end
+
+  def family()
+      sql = "SELECT * FROM familys
+      WHERE id = $1"
+      values = [@family_id]
+      results = SqlRunner.run(sql, values)
+      return Family.new(results.first)
+    end
 
 end

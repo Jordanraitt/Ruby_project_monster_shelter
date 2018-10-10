@@ -3,7 +3,7 @@
 <p>Name: <%= @trainers.name %></p>
 <p>Monster/s:</p>
 <% for monster in @trainers.monsters %>
-<p> <%= monster.name() %></p>
+<p><a href="/monsters/<%= monster.id %>"><%= monster.name() %></p>
 <% end %>
 
 

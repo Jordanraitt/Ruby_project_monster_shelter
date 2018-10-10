@@ -5,7 +5,7 @@
 
 <% for monster in @monsters %>
 <hr />
-<p> <%= monster.name() %></p>
+<p><a href="/monsters/<%= monster.id %>"><%= monster.name %></a></p>
 <% end %>
 <hr />
 
