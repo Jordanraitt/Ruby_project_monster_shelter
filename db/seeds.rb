@@ -17,9 +17,9 @@ family1 = Family.new({
   "name" => "Slime"
   })
 
-  family2 = Family.new({
-    "name" => "Dragon"
-    })
+family2 = Family.new({
+  "name" => "Dragon"
+  })
 
 family1.save
 family2.save
@@ -40,9 +40,15 @@ monster3 = Monster.new({
   "family_id" => family1.id
 })
 
+monster4 = Monster.new({
+  "name" => "Dragon Kid",
+  "family_id" => family2.id
+})
+
 monster1.save
 monster2.save
 monster3.save
+monster4.save
 
 trainer1.monsters
 monster1.family

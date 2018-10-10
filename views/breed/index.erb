@@ -1,0 +1,9 @@
+<h1>Welcome to the Breeder</h1>
+
+<p>Please select the trainer who's monsters you wish to breed.</p>
+
+<% for trainer in @trainers %>
+<hr />
+<p><a href="/breed/<%= trainer.id %>"><%= trainer.name() %></a></p>
+<% end %>
+<hr />

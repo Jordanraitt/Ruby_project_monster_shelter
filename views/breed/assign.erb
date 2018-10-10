@@ -1,0 +1,23 @@
+<p>Now select the monsters to breed.</p>
+
+<form action="/breed/index" method="post">
+
+<label>
+Select First Monster:
+  <select name="monster1_id">
+    <% for monster in @trainers.monsters %>
+    <option value="<%= monster.id %>"><%= monster.name %></option>
+    <% end %>
+  </select>
+</label>
+
+<label>
+  Select Second Monster:
+  <select name="monster2_id">
+    <% for monster in @trainers.monsters %>
+    <option value="<%= monster.id %>"><%= monster.name %></option>
+    <% end %>
+  </select>
+</label>
+
+<input  type='submit' value="Breed">
