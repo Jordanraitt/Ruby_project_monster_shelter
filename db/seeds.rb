@@ -54,5 +54,7 @@ trainer1.monsters
 monster1.family
 Monster.all_available
 
+Monster.breed
+
 binding.pry
 nil

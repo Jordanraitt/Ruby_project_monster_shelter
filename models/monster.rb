@@ -1,4 +1,6 @@
 require_relative('../db/sql_runner')
+require("pry-byebug")
+
 
 class Monster
 
@@ -86,5 +88,42 @@ attr_accessor :trainer_id
       results = SqlRunner.run(sql, values)
       return Family.new(results.first)
     end
+# breeding method (may break life)
+
+  def self.breed( mf1, mf2 )
+
+    mf1n = mf1.family.name
+    mf2n = mf2.family.name
+
+    # monster = SqlRunner.run( sql, values )
+
+    if mf1n== "Slime"
+      mf2n == "Dragon"
+        return Monster.new({
+          "name" => "Drak Slime",
+          "family_id" => mf1.family.id
+        })
+    elsif mf1n == "Dragon"
+       mf2n == "Slime"
+         return Monster.new({
+           "name" => "Dragon Kid",
+           "family_id" => mf2.family.id
+         })
+    elsif mf1n == "Dragon"
+       mf2n == "Dragon"
+         return Monster.new({
+           "name" => "Dragon",
+           "family_id" => mf2.family.id
+         })
+    elsif mf1n == "Slime"
+       mf2n == "Slime"
+         return Monster.new({
+           "name" => "Slime",
+           "family_id" => mf1.family.id
+         })
+    end
+      # mf1.delete
+      # mf2.delete
+  end
 
 end

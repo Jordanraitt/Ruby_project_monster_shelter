@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' )
-require('pry')
+require("pry-byebug")
 require_relative('../models/trainer.rb')
 require_relative('../models/monster.rb')
 require_relative('../models/family.rb')
@@ -21,9 +21,12 @@ get '/breed/:id' do
 end
 
 # breeding
-post 'breed/:id' do
+post '/breed/index' do
   mf1 = Monster.find(params["monster1_id"])
   mf2 = Monster.find(params["monster2_id"])
-  @monster.breed
+  monster = Monster.breed(mf1, mf2)
+  monster.save
   erb( :"breed/breeding" )
+
+
 end
