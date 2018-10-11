@@ -1,12 +1,12 @@
 <h1>Warp Gate</h1>
 <p>Here you can find all currently available monsters to catch.</p>
 
-<p> <a href="/monsters/new">Spawn Monster</a> </p>
+<p> <a class="button" href="/monsters/new">Spawn Monster</a> </p>
 
 <% for monster in @monsters %>
 <hr />
-<p><a href="/monsters/<%= monster.id %>"><%= monster.name %></a></p>
+<p><a class="button" href="/monsters/<%= monster.id %>"><%= monster.name %></a></p>
 <% end %>
 <hr />
 
-<p> <a href="/monsters/assign">Catch a Monster</a> </p>
+<p> <a class="button" href="/monsters/assign">Catch a Monster</a> </p>

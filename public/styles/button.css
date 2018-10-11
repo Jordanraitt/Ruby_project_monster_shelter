@@ -1,0 +1,17 @@
+.button {
+  border: 1px solid olivedrab;
+  padding: 8px;
+  border-radius: 4%;
+}
+
+.button:hover {
+  border: 1px solid olivedrab;
+  background: lightgoldenrodyellow;
+  color: olivedrab;
+}
+
+.button:active {
+  border: 10px solid olivedrab;
+  background: lightgoldenrodyellow;
+  color: olivedrab;
+}

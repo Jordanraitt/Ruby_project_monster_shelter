@@ -4,32 +4,38 @@
     <meta charset="utf-8">
     <title>Monster Shelter</title>
     <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/button.css">
   </head>
   <body>
+  <section class="classy">
 
-<nav>
-  <ul>
-    <li>
-      <a href="/">Monster Breeder</a>
-    </li>
-    <li>
-      <a href="/trainers">View Trainers</a>
-      <a href="/trainers/new">Warp in a New Trainer</a>
-    </li>
-    <li>
-      <a href="/monsters/index">Warp Gate</a>
-    </li>
-    <li>
-      <a href="/breed/index">Breeder</a>
-    </li>
-  </ul>
-</nav>
 
-<main>
-  <%= yield %>
-</main>
+    <nav>
+      <ul>
+        <li>
+          <a class="button" href="/">Monster Breeder</a>
+        </li>
+        <li>
+          <a class="button" href="/trainers">View Trainers</a>
+        </li>
+        <li>
+          <a class="button" href="/trainers/new">Warp in a New Trainer</a>
+        </li>
+        <li>
+          <a class="button" href="/monsters/index">Warp Gate</a>
+        </li>
+        <li>
+          <a class="button" href="/breed/index">Breeder</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main>
+      <%= yield %>
+    </main>
 
 <footer><p>Names, characters, businesses, places, events, locales, and incidents are either the products of the author's imagination or used in a fictitious manner. Any resemblance to actual persons, living or dead, or actual events is purely coincidental.</p></footer>
 
+  </section>
   </body>
 </html>

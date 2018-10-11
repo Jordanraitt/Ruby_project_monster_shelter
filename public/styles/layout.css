@@ -1,5 +1,77 @@
+
+body {
+  margin: 8px;
+  background-color: lightgoldenrodyellow;
+}
+
 footer {
   font-style: italic;
   font-size: 6px;
   color: grey;
+}
+
+
+h1, h2 {
+  background-color: olivedrab;
+  color: lightgoldenrodyellow;
+  text-align: center;
+  padding: 10px;
+}
+
+nav {
+  margin-bottom: 5px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+ul {
+  display: flex;
+}
+
+li {
+  flex-direction: row;
+  padding: 5px;
+}
+
+a {
+  color: lightgoldenrodyellow;
+  background: olivedrab
+}
+
+a:link {
+  text-decoration: none;
+  }
+a:visited {
+  text-decoration: none;
+  }
+
+img {
+
+
+}
+
+.classy {
+  display: grid;
+  grid-template-areas: "hd"
+                       "nv"
+                       "mn"
+                       "ft";
+}
+
+.classy > nav {
+  grid-area: nv;
+}
+
+.classy > h1 {
+  grid-area: hd;
+}
+
+.classy > main {
+  grid-area: mn;
+}
+
+.classy > footer {
+  grid-area: ft;
 }
